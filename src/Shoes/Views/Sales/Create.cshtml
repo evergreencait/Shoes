@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Shoes.Models.Sale
+
+<h3>Add A Product</h3>
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.ShoeName)
+        @Html.EditorFor(model => model.ShoeName, new { htmlAttributes = new { @class = "form-control" } })
+
+        @Html.LabelFor(model => model.Price)
+        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+
+        @Html.LabelFor(model => model.Image)
+        @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+
+        @Html.LabelFor(model => model.Comment)
+        @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+
+        <input type="submit" value="Add Product" class="btn btn-default" />
+
+    }
+
+    <p>@Html.ActionLink("Back to Sales", "Index", "Sales")</p>
+</div>

@@ -42,7 +42,7 @@ namespace Shoes
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Sales}/{action=Index}/{id?}");
             });
 
             app.Run(async (context) =>

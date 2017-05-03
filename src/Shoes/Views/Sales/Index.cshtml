@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Sales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+@model IEnumerable<Shoes.Models.Sale>
+
+<h3>Shoes</h3>
+
+@foreach(var listSales in Model)
+{
+    <p>
+        @Html.DisplayFor(modelSales => listSales.ShoeName) |
+        @Html.ActionLink("Details", "Details", new {  id = listSales.SaleId}) | @Html.ActionLink("Add Product", "Create", "Sales")| @Html.ActionLink("Edit Product", "Edit", "Sales", new { id = listSales.SaleId }) 
+    </p>
+}

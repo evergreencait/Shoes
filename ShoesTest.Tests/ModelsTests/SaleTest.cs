@@ -14,7 +14,7 @@ namespace SaleTest.Tests
         public void GetDescriptionTest()
         {
             //Arrange
-            var sale = new Sale();
+            var sale = new Shoes.Models.Sale();
             sale.ShoeName = "Gucci Shoe";
 
             //Act
@@ -23,5 +23,7 @@ namespace SaleTest.Tests
             //Assert
             Assert.Equal("Gucci Shoe", result);
         }
+
+
     }
 }

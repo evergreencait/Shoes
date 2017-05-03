@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Sales Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Shoes.Models.Sale
+
+<h1>Shoes on Sale</h1>
+<hr />
+
+<h3>@Html.DisplayFor(model => model.ShoeName)</h3>
+<h4>$@Html.DisplayFor(model => model.Price)</h4>
+<img src="@Html.DisplayFor(model => model.Image)" class="photoDisplay"/> 
+<p>@Html.DisplayFor(model => model.Comment)</p>
+
+@Html.ActionLink("Back", "Index", "Sales")
