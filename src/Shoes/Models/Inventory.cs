@@ -9,10 +9,14 @@ namespace Shoes.Models
 {
     public class Inventory
     {
-        [Key]
         public int Id { get; set; }
         public int Stock { get; set; }
         public int Revenue { get; set; }
-        public virtual ICollection<Sale> Sales { get; set; }
+        public Inventory(int stock, int revenue, int id = 0)
+        {
+            Stock = stock;
+            Revenue = revenue;
+            Id = id; 
+        }
     }
 }
