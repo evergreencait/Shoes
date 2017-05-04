@@ -29,11 +29,12 @@ namespace Sales.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Sale sale)
+        public IActionResult Create(string newShoe, int newPrice, string newImage, string newComment)
         {
-            db.Sales.Add(sale);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Sales");
+            Sale newSale = new Sale(newShoe, newPrice, newImage, newComment);
+            db.Sales.Add(newSale);
+            db.SaveChanges(); 
+            return Json(newSale);
         }
 
         public IActionResult Edit(int id)
