@@ -9,8 +9,10 @@
 
 @foreach(var listSales in Model)
 {
-    <p>
-        @Html.DisplayFor(modelSales => listSales.ShoeName) |
-        @Html.ActionLink("Details", "Details", new {  id = listSales.SaleId}) | @Html.ActionLink("Add Product", "Create", "Sales")| @Html.ActionLink("Edit Product", "Edit", "Sales", new { id = listSales.SaleId }) 
+
+    <p class="click-details" id="@listSales.SaleId">
+        @Html.DisplayFor(modelSales => listSales.ShoeName)
     </p>
 }
+
+<div class="details"></div>

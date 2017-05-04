@@ -19,7 +19,7 @@ namespace Sales.Controllers
         
         public IActionResult Details(int id)
         {
-            var thisSale = db.Sales.FirstOrDefault(sales => sales.SaleId == id);
+            Sale thisSale = db.Sales.FirstOrDefault(sales => sales.SaleId == id);
             return View(thisSale);
         }
 
