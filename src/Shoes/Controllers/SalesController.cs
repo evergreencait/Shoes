@@ -63,7 +63,7 @@ namespace Sales.Controllers
             var thisSale = db.Sales.FirstOrDefault(sales => sales.SaleId == id);
             db.Sales.Remove(thisSale);
             db.SaveChanges();
-            return RedirectToAction("SaleList");
+            return Json(thisSale);
         }
 
         public IActionResult SaleList()

@@ -19,8 +19,9 @@
                                 type: 'POST',
                                 url: 'Sales/Delete/' + this.value,
                                 success: function (result) {
-                                    //var SaleId = result.id.toString();
-                                    //$('#' + SaleId).remove();
+                                    console.log(result);
+                                    var SaleId = result.saleId;
+                                    $('#' + SaleId).remove();
                                 }
                             });
                         });
