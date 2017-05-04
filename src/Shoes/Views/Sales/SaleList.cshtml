@@ -1,0 +1,10 @@
+﻿
+@model IEnumerable<Shoes.Models.Sale>
+
+@foreach (var listSales in Model)
+{
+
+    <p class="click-details" id="@listSales.SaleId">
+        @Html.DisplayFor(modelSales => listSales.ShoeName)
+    </p>
+}

@@ -4,20 +4,30 @@
 }
  
 @model IEnumerable<Shoes.Models.Sale>
+<div class="display-view">
+    <h3>Shoes</h3>
 
-<h3>Shoes</h3>
+    <div class="list">
 
-@foreach(var listSales in Model)
-{
+        <h2>inside list</h2>
+    </div>
 
-    <p class="click-details" id="@listSales.SaleId">
-        @Html.DisplayFor(modelSales => listSales.ShoeName) | @Html.ActionLink("Delete", "Delete", new { id = listSales.SaleId })
-    </p>
-}
+    @*@foreach(var listSales in Model)
+        {
 
-<p class="newShoe"></p>
+            <p class="click-details" id="@listSales.SaleId">
+                @Html.DisplayFor(modelSales => listSales.ShoeName)
+            </p>
+            <p class="click-delete" id="@listSales.SaleId">
+                Delete
+            </p>
+        }*@
 
-<div class="click-create">Add shoe to inventory</div>
+    <p class="newShoe"></p>
 
-<div class="details"></div>
-<div class="create"></div>
+    <div class="click-create">Add shoe to inventory</div>
+
+    <div class="details"></div>
+    <div class="create"></div>
+    <div class="delete"></div>
+</div>

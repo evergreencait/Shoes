@@ -14,7 +14,7 @@ namespace Sales.Controllers
         private ShoesDbContext db = new ShoesDbContext();
         public IActionResult Index()
         {
-            return View(db.Sales.ToList());
+            return View();
         }
         
         public IActionResult Details(int id)
@@ -65,5 +65,12 @@ namespace Sales.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult SaleList()
+        {
+            //db.Sales.ToList()
+            return View(db.Sales.ToList());
+        }
+
     }
 }

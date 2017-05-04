@@ -1,4 +1,24 @@
 ﻿$(document).ready(function () {
+
+    $.ajax({
+        type: 'GET',
+        dataType: 'html',
+        url: 'Sales/SaleList',
+        success: function (result) {
+            $('.list').html(result);
+            $('.click-details').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    datatype: 'html',
+                    url: 'Sales/Details/' + this.id,
+                    success: function (result) {
+                        $('.details').html(result);
+                    }
+                })
+            })
+        }
+    });
+
     $('.display-object').click(function () {
         $.ajax({
             type: 'GET',
@@ -12,17 +32,6 @@
             }
         });
     });
-
-    $('.click-details').click(function () {
-        $.ajax({
-            type: 'GET',
-            datatype: 'html',
-            url: 'Sales/Details/' + this.id,
-            success: function (result) {
-                $('.details').html(result);
-            }
-        })
-    })
     $('.click-create').click(function () {
         $.ajax({
             type: 'GET',
@@ -36,7 +45,6 @@
     });
     $('.new-sale').submit(function (event) {
         event.preventDefault();
-           alert("this works!")
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -48,14 +56,27 @@
             }
         });
     });
-    $('delete-sale').click(function () {
+
+
+    $('.click-delete').click(function () {
         $.ajax({
-            type: 'POST',
-            url: 'Sale/Delete' + this.value,
+            type: 'GET',
+            url: 'Sales/Delete/' + this.id,
             success: function (result) {
-                var saleId = result.saleId.toString();
-                $('.each' + saleId).remove();
+                $('.delete-sale').html(result);
             }
         });
     })
+
+    //$('.display-view').ready(function () {
+    //    console.log("inside ajax");
+    //    $.ajax({
+    //        type: 'GET',
+    //        dataType: 'html',
+    //        url: 'Sales/SaleList',
+    //        success: function (result) {
+    //            $('.list').html(result);
+    //        }
+    //    });
+    //});
 });
