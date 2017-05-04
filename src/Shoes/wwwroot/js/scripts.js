@@ -13,12 +13,38 @@
                     url: 'Sales/Details/' + this.id,
                     success: function (result) {
                         $('.details').html(result);
-                    }
-                })
-            })
-        }
-    });
+                        $('#delete-button').click(function () {
+                            console.log("Hello");
+                            $.ajax({
+                                type: 'POST',
+                                url: 'Sales/Delete/' + this.value,
+                                success: function (result) {
+                                    //var SaleId = result.id.toString();
+                                    //$('#' + SaleId).remove();
+                                }
+                            });
+                        });
 
+                    }
+                });
+
+            });
+        }
+    })
+        //$('#delete-button').submit(function () {
+        //    $.ajax({
+        //        type: 'POST',
+        //        url: 'Sales/Delete/' + this.value,
+        //        success: function (result) {
+        //            var SaleId = result.id.toString();
+        //            $('.each-' + SaleId).remove();
+        //        }
+        //    });
+     
+        //});
+
+        
+        })
     $('.display-object').click(function () {
         $.ajax({
             type: 'GET',
@@ -51,22 +77,13 @@
             url: 'Sales/Create',
             data: $(this).serialize(), 
             success: function (result) {
-                var returnResult = result.ShoeName;
+                var returnResult = result.shoeName;
                 $('.newShoe').append('<p>' + returnResult + '</p>');
             }
         });
     });
 
-
-    $('.click-delete').click(function () {
-        $.ajax({
-            type: 'GET',
-            url: 'Sales/Delete/' + this.id,
-            success: function (result) {
-                $('.delete-sale').html(result);
-            }
-        });
-    })
+    
 
     //$('.display-view').ready(function () {
     //    console.log("inside ajax");
@@ -79,4 +96,3 @@
     //        }
     //    });
     //});
-});
