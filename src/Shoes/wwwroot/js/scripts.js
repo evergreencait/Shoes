@@ -48,5 +48,14 @@
             }
         });
     });
-
+    $('delete-sale').click(function () {
+        $.ajax({
+            type: 'POST',
+            url: 'Sale/Delete' + this.value,
+            success: function (result) {
+                var saleId = result.saleId.toString();
+                $('.each' + saleId).remove();
+            }
+        });
+    })
 });

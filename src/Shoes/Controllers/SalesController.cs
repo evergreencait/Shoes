@@ -50,5 +50,20 @@ namespace Sales.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int id)
+        {
+            var thisSale = db.Sales.FirstOrDefault(sales => sales.SaleId == id);
+            return View(thisSale);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisSale = db.Sales.FirstOrDefault(sales => sales.SaleId == id);
+            db.Sales.Remove(thisSale);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
